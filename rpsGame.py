@@ -1,8 +1,5 @@
 import random
 
-print("BOT: Hello! What is your name")
-user_name = input()
-
 def rock_paper_scissors_game():
     while True:
         #ask the user a question then wait for their input
@@ -37,7 +34,10 @@ def rock_paper_scissors_game():
         # asks the user if they want to play again
         play_again = input("Play again? (y/n): ")
         if play_again.lower() != "y":
-            break
+            exit()
+
+print("BOT: Hello! What is your name")
+user_name = input()
 
 # These templates will act as a placeholder for conversations going 
 # back and forth between the bot and user- 
@@ -63,8 +63,7 @@ responses = {
     "Yes, I am a robot with human feelings.", ],
     
     "exit": [
-        "Bye, see you next time!",
-        "see you later"
+        "Bye, see you next time!"
     ],
 
     "default": [
@@ -85,6 +84,8 @@ def related(x_text):
         y_text = "what's today's weather?"
     elif "robot" in x_text: 
         y_text = "Are you a robot?"
+    elif "exit" in x_text: 
+        y_text = "exit"
     elif "game" in x_text:
         rock_paper_scissors_game()
     else: 
@@ -106,5 +107,4 @@ while True:
   # returns a bot response in relation to that key word
   send_message(related_text)
   if my_input == "exit" or my_input == "stop": 
-    print("Bye, see you next time!")
-    break
+    exit()
