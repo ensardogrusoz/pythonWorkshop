@@ -46,7 +46,7 @@ bot_template = "BOT : {0}"
 user_template = user_name + " : {0}" 
 
 # By using the format function, we can fill in the value inside of {}
-print(bot_template.format("Ask a question"))
+print(bot_template.format("Ask a question. ex: 'whats the weather', 'play game', 'are you a robot?'"))
 
 weather = "rainy" 
 
@@ -61,6 +61,11 @@ responses = {
     "What do you think?", 
     "Maybe yes, maybe no!", 
     "Yes, I am a robot with human feelings.", ],
+    
+    "exit": [
+        "Bye, see you next time!",
+        "see you later"
+    ],
 
     "default": [
     "Sorry I did not understand that."] 
@@ -79,7 +84,7 @@ def related(x_text):
     if "weather" in x_text: 
         y_text = "what's today's weather?"
     elif "robot" in x_text: 
-        y_text = "are you a robot?"
+        y_text = "Are you a robot?"
     elif "game" in x_text:
         rock_paper_scissors_game()
     else: 
@@ -92,7 +97,7 @@ def send_message(message):
   print(bot_template.format(response))
 
 # this is what keeps the code/bot conversation
-while 1: 
+while True: 
   # gets the users input
   my_input = input() 
   my_input = my_input.lower()
@@ -101,4 +106,5 @@ while 1:
   # returns a bot response in relation to that key word
   send_message(related_text)
   if my_input == "exit" or my_input == "stop": 
+    print("Bye, see you next time!")
     break
