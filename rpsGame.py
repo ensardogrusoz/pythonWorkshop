@@ -106,5 +106,5 @@ while True:
   related_text = related(my_input) 
   # returns a bot response in relation to that key word
   send_message(related_text)
-  if my_input == "exit" or my_input == "stop": 
+  if my_input == "exit": 
     exit()
